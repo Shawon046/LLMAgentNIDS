@@ -1,0 +1,13 @@
+SEED : 42 # Set seed for reproducibility
+DEVICE_str : cpu
+dataset : nsl-kdd
+model : llm
+
+train_test_split : 0.8
+
+run_type : 'train' # 'train' or 'test'
+
+plots_dir: '../artifacts/plots' # Directory for results
+models_dir: '../artifacts/models/' # Directory for storing models
+
+dataset_dir: '../nsl-kdd/NSL-KDD/' # Directory for dataset
