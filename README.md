@@ -43,7 +43,8 @@ Download the nsl-kdd dataset from the drive and put it inside the nsl-kdd folder
 Change corresponding variable in cof/config.yaml file, if needed. 
 Run the main file with:
 ```
+conda activate llm-nids
 cd src/
-nohup python main.py > dummy.log 2>&1 &
+nohup python main.py > preprocess-nsl-kdd-dataset.log 2>&1 &
 nohup python main.py model='llm-agent'> output.log 2>&1 &
 ```
