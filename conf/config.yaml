@@ -14,7 +14,7 @@ models_dir: '../artifacts/models/' # Directory for storing models
 dataset_dir: '../nsl-kdd/NSL-KDD/' # Directory for dataset
 scaler_dir : '../artifacts/scaler' # Directory for scaler data
 
-batch_size = 32
+batch_size : 32
 
 # Columns
 columns:

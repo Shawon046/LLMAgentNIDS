@@ -17,19 +17,19 @@ def process_dataset(cfg: DictConfig):
     preprocess_dataset(cfg)
 
 
-@hydra.main(version_base=None, config_path="../conf", config_name="config")
 
 def load_and_train_model(cfg: DictConfig) -> None:
 
     # # Update config with source directory
-    source_dir = Path(__file__).resolve().parent
-    cfg = update_abs_path(cfg_base.copy(), source_dir)
+    # source_dir = Path(__file__).resolve().parent
+    # cfg = update_abs_path(cfg_base.copy(), source_dir)
     print(f"{cfg.run_type.capitalize()} {cfg.model} model on {cfg.dataset}")
 
     
-    print("Starting point: cfg.data_dir :", cfg.data_dir)
+    print(f"Starting point: {cfg.dataset_dir} ")
     dataloader = get_dataloader(cfg) 
 
+@hydra.main(version_base=None, config_path="../conf", config_name="config")
 
 def main(cfg: DictConfig):
     print(f'**** Main file ****')
@@ -37,7 +37,7 @@ def main(cfg: DictConfig):
     DEVICE = getDevice(cfg)
     check_cuda(cfg)
     process_dataset(cfg)
-    load_and_train_model()
+    load_and_train_model(cfg)
     print(f'**** End ****')
 
 if __name__ == "__main__":
