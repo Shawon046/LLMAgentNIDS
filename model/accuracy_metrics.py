@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+pd.set_option('display.max_colwidth', None)
+pd.set_option('display.max_columns', None) 
 
 # Compare Accuracy Scores
 def compare_accuracy_metrics(cfg, result_dict_test):
@@ -13,7 +15,7 @@ def compare_accuracy_metrics(cfg, result_dict_test):
     # df_result_test
 
     # Display the accuracy scores
-    fig,ax = plt.subplots(1,2,figsize=(10,5))
+    fig,ax = plt.subplots(1,2,figsize=(20,16))
     sns.barplot(x = df_result_test.index,y = df_result_test.recall,ax = ax[0])
     sns.barplot(x = df_result_test.index,y = df_result_test.FPR,ax = ax[1])
     ax[0].set_xticklabels(df_result_test.index,rotation = 85)
@@ -22,7 +24,7 @@ def compare_accuracy_metrics(cfg, result_dict_test):
     save_path = f"{cfg.plots_dir}/Recall and FPR for Baseline.png"
     plt.savefig(save_path, dpi = 300)
 
-    fig,ax = plt.subplots(1,2,figsize=(10,5))
+    fig,ax = plt.subplots(1,2,figsize=(20,16))
     sns.barplot(x = df_result_test.index,y = df_result_test.benign_precision,ax = ax[0])
     sns.barplot(x = df_result_test.index,y = df_result_test.anomaly_precision,ax = ax[1])
     ax[0].set_xticklabels(df_result_test.index,rotation = 85)

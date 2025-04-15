@@ -1,0 +1,486 @@
+nohup: ignoring input
+**** Main file ****
+seed from hydra config file is 42
+Using device: cuda:0
+---------- Checking Version of Virtual Environment before starting ---------------
+Torch version: 2.5.1
+CUDA version: 12.4
+Is CUDA enabled? True
+Using device: cuda:0
+current_device Name : NVIDIA GeForce RTX 3070 Ti
+Memory Usage:
+Allocated: 0.0 GB
+Cached:    0.0 GB
+Train ml model on nsl-kdd
+Starting point: ../nsl-kdd/NSL-KDD/ 
+43
+   duration protocol_type   service flag  src_bytes  dst_bytes  land  \
+0         0           tcp  ftp_data   SF        491          0     0   
+1         0           udp     other   SF        146          0     0   
+2         0           tcp   private   S0          0          0     0   
+3         0           tcp      http   SF        232       8153     0   
+4         0           tcp      http   SF        199        420     0   
+
+   wrong_fragment  urgent  hot  num_failed_logins  logged_in  num_compromised  \
+0               0       0    0                  0          0                0   
+1               0       0    0                  0          0                0   
+2               0       0    0                  0          0                0   
+3               0       0    0                  0          1                0   
+4               0       0    0                  0          1                0   
+
+   root_shell  su_attempted  num_root  num_file_creations  num_shells  \
+0           0             0         0                   0           0   
+1           0             0         0                   0           0   
+2           0             0         0                   0           0   
+3           0             0         0                   0           0   
+4           0             0         0                   0           0   
+
+   num_access_files  num_outbound_cmds  is_hot_login  is_guest_login  count  \
+0                 0                  0             0               0      2   
+1                 0                  0             0               0     13   
+2                 0                  0             0               0    123   
+3                 0                  0             0               0      5   
+4                 0                  0             0               0     30   
+
+   srv_count  serror_rate  srv_serror_rate  rerror_rate  srv_rerror_rate  \
+0          2          0.0              0.0          0.0              0.0   
+1          1          0.0              0.0          0.0              0.0   
+2          6          1.0              1.0          0.0              0.0   
+3          5          0.2              0.2          0.0              0.0   
+4         32          0.0              0.0          0.0              0.0   
+
+   same_srv_rate  diff_srv_rate  srv_diff_host_rate  dst_host_count  \
+0           1.00           0.00                0.00             150   
+1           0.08           0.15                0.00             255   
+2           0.05           0.07                0.00             255   
+3           1.00           0.00                0.00              30   
+4           1.00           0.00                0.09             255   
+
+   dst_host_srv_count  dst_host_same_srv_rate  dst_host_diff_srv_rate  \
+0                  25                    0.17                    0.03   
+1                   1                    0.00                    0.60   
+2                  26                    0.10                    0.05   
+3                 255                    1.00                    0.00   
+4                 255                    1.00                    0.00   
+
+   dst_host_same_src_port_rate  dst_host_srv_diff_host_rate  \
+0                         0.17                         0.00   
+1                         0.88                         0.00   
+2                         0.00                         0.00   
+3                         0.03                         0.04   
+4                         0.00                         0.00   
+
+   dst_host_serror_rate  dst_host_srv_serror_rate  dst_host_rerror_rate  \
+0                  0.00                      0.00                  0.05   
+1                  0.00                      0.00                  0.00   
+2                  1.00                      1.00                  0.00   
+3                  0.03                      0.01                  0.00   
+4                  0.00                      0.00                  0.00   
+
+   dst_host_srv_rerror_rate attack_type  difficulty_score  
+0                      0.00      normal                20  
+1                      0.00      normal                15  
+2                      0.00     neptune                19  
+3                      0.01      normal                21  
+4                      0.00      normal                21  
+   duration protocol_type   service flag  src_bytes  dst_bytes  land  \
+0         0           tcp  ftp_data   SF        491          0     0   
+1         0           udp     other   SF        146          0     0   
+2         0           tcp   private   S0          0          0     0   
+3         0           tcp      http   SF        232       8153     0   
+4         0           tcp      http   SF        199        420     0   
+
+   wrong_fragment  urgent  hot  num_failed_logins  logged_in  num_compromised  \
+0               0       0    0                  0          0                0   
+1               0       0    0                  0          0                0   
+2               0       0    0                  0          0                0   
+3               0       0    0                  0          1                0   
+4               0       0    0                  0          1                0   
+
+   root_shell  su_attempted  num_root  num_file_creations  num_shells  \
+0           0             0         0                   0           0   
+1           0             0         0                   0           0   
+2           0             0         0                   0           0   
+3           0             0         0                   0           0   
+4           0             0         0                   0           0   
+
+   num_access_files  num_outbound_cmds  is_hot_login  is_guest_login  count  \
+0                 0                  0             0               0      2   
+1                 0                  0             0               0     13   
+2                 0                  0             0               0    123   
+3                 0                  0             0               0      5   
+4                 0                  0             0               0     30   
+
+   srv_count  serror_rate  srv_serror_rate  rerror_rate  srv_rerror_rate  \
+0          2          0.0              0.0          0.0              0.0   
+1          1          0.0              0.0          0.0              0.0   
+2          6          1.0              1.0          0.0              0.0   
+3          5          0.2              0.2          0.0              0.0   
+4         32          0.0              0.0          0.0              0.0   
+
+   same_srv_rate  diff_srv_rate  srv_diff_host_rate  dst_host_count  \
+0           1.00           0.00                0.00             150   
+1           0.08           0.15                0.00             255   
+2           0.05           0.07                0.00             255   
+3           1.00           0.00                0.00              30   
+4           1.00           0.00                0.09             255   
+
+   dst_host_srv_count  dst_host_same_srv_rate  dst_host_diff_srv_rate  \
+0                  25                    0.17                    0.03   
+1                   1                    0.00                    0.60   
+2                  26                    0.10                    0.05   
+3                 255                    1.00                    0.00   
+4                 255                    1.00                    0.00   
+
+   dst_host_same_src_port_rate  dst_host_srv_diff_host_rate  \
+0                         0.17                         0.00   
+1                         0.88                         0.00   
+2                         0.00                         0.00   
+3                         0.03                         0.04   
+4                         0.00                         0.00   
+
+   dst_host_serror_rate  dst_host_srv_serror_rate  dst_host_rerror_rate  \
+0                  0.00                      0.00                  0.05   
+1                  0.00                      0.00                  0.00   
+2                  1.00                      1.00                  0.00   
+3                  0.03                      0.01                  0.00   
+4                  0.00                      0.00                  0.00   
+
+   dst_host_srv_rerror_rate attack_type  
+0                      0.00      normal  
+1                      0.00      normal  
+2                      0.00     neptune  
+3                      0.01      normal  
+4                      0.00      normal  
+Label distribution Training set:
+attack_type
+normal             67343
+neptune            41214
+satan               3633
+ipsweep             3599
+portsweep           2931
+smurf               2646
+nmap                1493
+back                 956
+teardrop             892
+warezclient          890
+pod                  201
+guess_passwd          53
+buffer_overflow       30
+warezmaster           20
+land                  18
+imap                  11
+rootkit               10
+loadmodule             9
+ftp_write              8
+multihop               7
+phf                    4
+perl                   3
+spy                    2
+Name: count, dtype: int64
+Categorical distribution in Training set:
+Feature 'protocol_type' has 3 categories
+Feature 'service' has 70 categories
+Feature 'flag' has 11 categories
+Feature 'attack_type' has 23 categories
+
+Distribution of categories in service:
+service
+http        40338
+private     21853
+domain_u     9043
+smtp         7313
+ftp_data     6860
+Name: count, dtype: int64
+Preprocess training data and scaler
+Label Encoder is going to be saved to ../artifacts/scaler/label_encoders
+Shape X (125973, 42) and y (125973,)
+Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Training: Shape X (125973, 42) and y (125973,)
+Returning X and y for train: True
+43
+   duration protocol_type   service  flag  src_bytes  dst_bytes  land  \
+0         0           tcp   private   REJ          0          0     0   
+1         0           tcp   private   REJ          0          0     0   
+2         2           tcp  ftp_data    SF      12983          0     0   
+3         0          icmp     eco_i    SF         20          0     0   
+4         1           tcp    telnet  RSTO          0         15     0   
+
+   wrong_fragment  urgent  hot  num_failed_logins  logged_in  num_compromised  \
+0               0       0    0                  0          0                0   
+1               0       0    0                  0          0                0   
+2               0       0    0                  0          0                0   
+3               0       0    0                  0          0                0   
+4               0       0    0                  0          0                0   
+
+   root_shell  su_attempted  num_root  num_file_creations  num_shells  \
+0           0             0         0                   0           0   
+1           0             0         0                   0           0   
+2           0             0         0                   0           0   
+3           0             0         0                   0           0   
+4           0             0         0                   0           0   
+
+   num_access_files  num_outbound_cmds  is_hot_login  is_guest_login  count  \
+0                 0                  0             0               0    229   
+1                 0                  0             0               0    136   
+2                 0                  0             0               0      1   
+3                 0                  0             0               0      1   
+4                 0                  0             0               0      1   
+
+   srv_count  serror_rate  srv_serror_rate  rerror_rate  srv_rerror_rate  \
+0         10          0.0             0.00          1.0              1.0   
+1          1          0.0             0.00          1.0              1.0   
+2          1          0.0             0.00          0.0              0.0   
+3         65          0.0             0.00          0.0              0.0   
+4          8          0.0             0.12          1.0              0.5   
+
+   same_srv_rate  diff_srv_rate  srv_diff_host_rate  dst_host_count  \
+0           0.04           0.06                0.00             255   
+1           0.01           0.06                0.00             255   
+2           1.00           0.00                0.00             134   
+3           1.00           0.00                1.00               3   
+4           1.00           0.00                0.75              29   
+
+   dst_host_srv_count  dst_host_same_srv_rate  dst_host_diff_srv_rate  \
+0                  10                    0.04                    0.06   
+1                   1                    0.00                    0.06   
+2                  86                    0.61                    0.04   
+3                  57                    1.00                    0.00   
+4                  86                    0.31                    0.17   
+
+   dst_host_same_src_port_rate  dst_host_srv_diff_host_rate  \
+0                         0.00                         0.00   
+1                         0.00                         0.00   
+2                         0.61                         0.02   
+3                         1.00                         0.28   
+4                         0.03                         0.02   
+
+   dst_host_serror_rate  dst_host_srv_serror_rate  dst_host_rerror_rate  \
+0                   0.0                       0.0                  1.00   
+1                   0.0                       0.0                  1.00   
+2                   0.0                       0.0                  0.00   
+3                   0.0                       0.0                  0.00   
+4                   0.0                       0.0                  0.83   
+
+   dst_host_srv_rerror_rate attack_type  difficulty_score  
+0                      1.00     neptune                21  
+1                      1.00     neptune                21  
+2                      0.00      normal                21  
+3                      0.00       saint                15  
+4                      0.71       mscan                11  
+   duration protocol_type   service  flag  src_bytes  dst_bytes  land  \
+0         0           tcp   private   REJ          0          0     0   
+1         0           tcp   private   REJ          0          0     0   
+2         2           tcp  ftp_data    SF      12983          0     0   
+3         0          icmp     eco_i    SF         20          0     0   
+4         1           tcp    telnet  RSTO          0         15     0   
+
+   wrong_fragment  urgent  hot  num_failed_logins  logged_in  num_compromised  \
+0               0       0    0                  0          0                0   
+1               0       0    0                  0          0                0   
+2               0       0    0                  0          0                0   
+3               0       0    0                  0          0                0   
+4               0       0    0                  0          0                0   
+
+   root_shell  su_attempted  num_root  num_file_creations  num_shells  \
+0           0             0         0                   0           0   
+1           0             0         0                   0           0   
+2           0             0         0                   0           0   
+3           0             0         0                   0           0   
+4           0             0         0                   0           0   
+
+   num_access_files  num_outbound_cmds  is_hot_login  is_guest_login  count  \
+0                 0                  0             0               0    229   
+1                 0                  0             0               0    136   
+2                 0                  0             0               0      1   
+3                 0                  0             0               0      1   
+4                 0                  0             0               0      1   
+
+   srv_count  serror_rate  srv_serror_rate  rerror_rate  srv_rerror_rate  \
+0         10          0.0             0.00          1.0              1.0   
+1          1          0.0             0.00          1.0              1.0   
+2          1          0.0             0.00          0.0              0.0   
+3         65          0.0             0.00          0.0              0.0   
+4          8          0.0             0.12          1.0              0.5   
+
+   same_srv_rate  diff_srv_rate  srv_diff_host_rate  dst_host_count  \
+0           0.04           0.06                0.00             255   
+1           0.01           0.06                0.00             255   
+2           1.00           0.00                0.00             134   
+3           1.00           0.00                1.00               3   
+4           1.00           0.00                0.75              29   
+
+   dst_host_srv_count  dst_host_same_srv_rate  dst_host_diff_srv_rate  \
+0                  10                    0.04                    0.06   
+1                   1                    0.00                    0.06   
+2                  86                    0.61                    0.04   
+3                  57                    1.00                    0.00   
+4                  86                    0.31                    0.17   
+
+   dst_host_same_src_port_rate  dst_host_srv_diff_host_rate  \
+0                         0.00                         0.00   
+1                         0.00                         0.00   
+2                         0.61                         0.02   
+3                         1.00                         0.28   
+4                         0.03                         0.02   
+
+   dst_host_serror_rate  dst_host_srv_serror_rate  dst_host_rerror_rate  \
+0                   0.0                       0.0                  1.00   
+1                   0.0                       0.0                  1.00   
+2                   0.0                       0.0                  0.00   
+3                   0.0                       0.0                  0.00   
+4                   0.0                       0.0                  0.83   
+
+   dst_host_srv_rerror_rate attack_type  
+0                      1.00     neptune  
+1                      1.00     neptune  
+2                      0.00      normal  
+3                      0.00       saint  
+4                      0.71       mscan  
+Label distribution Testing set:
+attack_type
+normal             9711
+neptune            4657
+guess_passwd       1231
+mscan               996
+warezmaster         944
+apache2             737
+satan               735
+processtable        685
+smurf               665
+back                359
+snmpguess           331
+saint               319
+mailbomb            293
+snmpgetattack       178
+portsweep           157
+ipsweep             141
+httptunnel          133
+nmap                 73
+pod                  41
+buffer_overflow      20
+multihop             18
+named                17
+ps                   15
+sendmail             14
+xterm                13
+rootkit              13
+teardrop             12
+xlock                 9
+land                  7
+xsnoop                4
+ftp_write             3
+loadmodule            2
+worm                  2
+perl                  2
+sqlattack             2
+udpstorm              2
+phf                   2
+imap                  1
+Name: count, dtype: int64
+Categorical distribution in Testing set:
+Feature 'protocol_type' has 3 categories
+Feature 'service' has 64 categories
+Feature 'flag' has 11 categories
+Feature 'attack_type' has 38 categories
+
+Distribution of categories in service:
+service
+http       7853
+private    4774
+telnet     1626
+pop_3      1019
+smtp        934
+Name: count, dtype: int64
+Preprocess testing data and scaler
+Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Scaler found at ../artifacts/scaler/label_encoders/standard_scaler.joblib
+Testing: Shape X (22544, 42) and y (22544,)
+Returning X and y for train: False
+Model dict is {'Naïve Bayes Classifier': 'GaussianNB', 'Bernoulli Naïve Bayes Classifier': 'BernoulliNB', 'Decision Tree Classifier': 'DecisionTreeClassifier', 'KNN Classifier': 'KNeighborsClassifier', 'Random Forest Classifier': 'RandomForestClassifier', 'Logistic Regression': 'LogisticRegression'}
+Naïve Bayes Classifier is running
+Train Score: 0.896255577851022
+Test Score: 0.8040720369056068
+R2 Score: 0.20096422068840702
+Per-class precision score: [0.71315832 0.91556389]
+Recall:  0.7224343489441284
+Test Score (F1 - micro): 0.8040720369056068
+True Positive 9271
+False Positive 855
+False Positive Rate is:  0.08804448563484708
+Bernoulli Naïve Bayes Classifier is running
+Train Score: 0.9025108543296397
+Test Score: 0.767388218594748
+R2 Score: 0.05135983094634511
+Per-class precision score: [0.65543879 0.96415902]
+Recall:  0.614197771370685
+Test Score (F1 - micro): 0.767388218594748
+True Positive 7882
+False Positive 293
+False Positive Rate is:  0.030171969931006074
+Decision Tree Classifier is running
+Train Score: 0.9987854553487324
+Test Score: 0.8504701916252662
+R2 Score: 0.39018573419529545
+Per-class precision score: [0.75       0.97962287]
+Recall:  0.7529805968986207
+Test Score (F1 - micro): 0.8504701916252662
+True Positive 9663
+False Positive 201
+False Positive Rate is:  0.020698177324683348
+KNN Classifier is running
+Train Score: 0.9985393706811724
+Test Score: 0.8207948899929027
+R2 Score: 0.2691635615986335
+Per-class precision score: [0.71525089 0.96916018]
+Recall:  0.7077066936803553
+Test Score (F1 - micro): 0.8207948899929027
+True Positive 9082
+False Positive 289
+False Positive Rate is:  0.02976006590464422
+Random Forest Classifier is running
+Train Score: 0.9996348444032238
+Test Score: 0.8220369056068133
+R2 Score: 0.2742287646370588
+Per-class precision score: [0.71608402 0.97135834]
+Recall:  0.7082521623938284
+Test Score (F1 - micro): 0.8220369056068133
+True Positive 9089
+False Positive 268
+False Positive Rate is:  0.027597569766244466
+Logistic Regression is running
+Train Score: 0.9780984891632674
+Test Score: 0.8424858055358411
+R2 Score: 0.35762371466256127
+Per-class precision score: [0.7610612  0.93188163]
+Recall:  0.7803319566741993
+Test Score (F1 - micro): 0.8424858055358411
+True Positive 10014
+False Positive 732
+False Positive Rate is:  0.07537843682421996
+                        train_accuracy  test_r2_score  accuracy  \
+GaussianNB                    0.896256       0.804072  0.200964   
+BernoulliNB                   0.902511       0.767388  0.051360   
+DecisionTreeClassifier        0.998785       0.850470  0.390186   
+KNeighborsClassifier          0.998539       0.820795  0.269164   
+RandomForestClassifier        0.999635       0.822037  0.274229   
+LogisticRegression            0.978098       0.842486  0.357624   
+
+                        benign_precision  anomaly_precision    recall  \
+GaussianNB                      0.713158           0.915564  0.722434   
+BernoulliNB                     0.655439           0.964159  0.614198   
+DecisionTreeClassifier          0.750000           0.979623  0.752981   
+KNeighborsClassifier            0.715251           0.969160  0.707707   
+RandomForestClassifier          0.716084           0.971358  0.708252   
+LogisticRegression              0.761061           0.931882  0.780332   
+
+                        f1_score       FPR  
+GaussianNB              0.804072  0.088044  
+BernoulliNB             0.767388  0.030172  
+DecisionTreeClassifier  0.850470  0.020698  
+KNeighborsClassifier    0.820795  0.029760  
+RandomForestClassifier  0.822037  0.027598  
+LogisticRegression      0.842486  0.075378  
+Implement LLM based agent here
+**** End ****

@@ -26,7 +26,7 @@ class NSLKDDDataset(Dataset):
 
         col_names = cfg.columns
         # print(col_names)
-        print(len(col_names))
+        # print(len(col_names))
         # Read the dataset
         df = pd.read_csv(train_file, sep=",", header=None, names=col_names)
 
@@ -137,28 +137,29 @@ class NSLKDDDataset(Dataset):
     
 
 
-def get_nsl_dataset(cfg, train_split):
+def get_nsl_dataset(cfg, train_test_split):
     """
     Load NSL-KDD dataset
     
     Args:
     - cfg: Configuration object with data_dir attribute
-    - train_split: Boolean to determine train or test dataset
+    - train_test_split: Boolean to determine train or test dataset
     
     Returns:
     - NSL-KDD Dataset
     """
-    print(f'**Inside Load NSL data file for train {train_split}**')
+    # print(f'**Inside Load NSL data file for train {train_split}**')
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])
     
     dataset = NSLKDDDataset(
         cfg=cfg, 
-        train=train_split, 
+        train=train_test_split, 
         transform=transform
     )
 
+    print(f'Returning X and y for train: {train_test_split}')
     # Get all data at once
     X_tensor, y_tensor = dataset.get_all_data()
     return X_tensor, y_tensor
