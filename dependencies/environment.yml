@@ -3,8 +3,7 @@ channels:
   - pytorch
   - nvidia
   - defaults
-  - https://repo.anaconda.com/pkgs/main
-  - https://repo.anaconda.com/pkgs/r
+  - conda-forge
 dependencies:
   - _libgcc_mutex=0.1=main
   - _openmp_mutex=5.1=1_gnu
@@ -124,6 +123,7 @@ dependencies:
       - pytz==2025.2
       - scikit-learn==1.6.1
       - scipy==1.15.2
+      - seaborn==0.13.2
       - six==1.17.0
       - threadpoolctl==3.6.0
       - tzdata==2025.2

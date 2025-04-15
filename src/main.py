@@ -11,8 +11,10 @@ from omegaconf import DictConfig # type: ignore
 from helper.misc_helper import *
 from dataset.load_data import get_dataloader
 from model.traditional_models import *
+from model.accuracy_metrics import *
 
-def load_and_train_model(cfg: DictConfig) -> None:
+
+def load_processed_dataset(cfg: DictConfig) -> None:
 
 
     print(f"{cfg.run_type.capitalize()} {cfg.model} model on {cfg.dataset}")
@@ -20,7 +22,12 @@ def load_and_train_model(cfg: DictConfig) -> None:
     print(f"Starting point: {cfg.dataset_dir} ")
     train_dataloader = get_dataloader(cfg, True) 
     test_dataloader = get_dataloader(cfg, False) 
-    # baseline_traditional_ml_models(cfg, train_dataloader, test_dataloader)
+    return train_dataloader, test_dataloader
+
+def baseline_model_train_test(cfg, train_dataloader, test_dataloader):
+    # Use this dataloaders to train and test models
+    result_dict_test = baseline_traditional_ml_models(cfg, train_dataloader, test_dataloader)
+    compare_accuracy_metrics(cfg, result_dict_test)
 
     # model, pre_trained, rem_epochs = get_model(cfg)
     # if cfg.run_type == 'train' and pre_trained:
@@ -42,6 +49,11 @@ def load_and_train_model(cfg: DictConfig) -> None:
     #     print("results :", results)
 
 
+
+#TODO: Tauhid Vai and Sabiha Apu
+def llm_based_agent_train_test(cfg, train_dataloader,test_dataloader):
+    print('Implement LLM based agent here')
+
 @hydra.main(version_base=None, config_path="../conf", config_name="config")
 
 def main(cfg: DictConfig):
@@ -49,7 +61,11 @@ def main(cfg: DictConfig):
     seed_everything(cfg)
     DEVICE = getDevice(cfg)
     check_cuda(cfg)
-    load_and_train_model(cfg)
+    train_dataloader, test_dataloader = load_processed_dataset(cfg)
+    baseline_model_train_test(cfg, train_dataloader, test_dataloader)
+    
+    #TODO: Tauhid Vai and Sabiha Apu
+    llm_based_agent_train_test(cfg, train_dataloader,test_dataloader)
     print(f'**** End ****')
 
 if __name__ == "__main__":

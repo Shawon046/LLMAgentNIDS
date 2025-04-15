@@ -110,10 +110,10 @@ def baseline_traditional_ml_models(cfg, train_dataloader, test_dataloader):
         plt.xlabel('Predictions', fontsize=18)
         plt.ylabel('Actuals', fontsize=18)
         plt.title('Confusion Matrix', fontsize=18)
+        save_path = f"{cfg.plots_dir}/Confusion Matrix for {model_name}.png"
+        plt.savefig(save_path, dpi=300)  # Save the figure with specified DPI
+#     plt.axis('off')
         # plt.show()
-
-
-
         #Store results in the dictionaries
         
         result_dict_test[model_name] = comparison_metrics
