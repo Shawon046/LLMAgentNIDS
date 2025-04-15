@@ -11,8 +11,6 @@ current_device Name : NVIDIA GeForce RTX 3070 Ti
 Memory Usage:
 Allocated: 0.0 GB
 Cached:    0.0 GB
-train nsl-kdd with ml
-Preprocessing dataset at ../nsl-kdd/NSL-KDD/
 Train ml model on nsl-kdd
 Starting point: ../nsl-kdd/NSL-KDD/ 
 **Inside Load data file**
@@ -88,6 +86,12 @@ Maximum value: 6.653244972229004
 Standard Deviation: 0.7655508518218994
 Label 1.0: 58630
 Label 0.0: 67343
-<torch.utils.data.dataloader.DataLoader object at 0x781fbff90050>
+<torch.utils.data.dataloader.DataLoader object at 0x74a3c5c2be30>
 *************************  Loaded Dataloader: <class 'torch.utils.data.dataloader.DataLoader'> *************************
+Naïve Bayes Classifier -> GaussianNB 
+Bernoulli Naïve Bayes Classifier -> BernoulliNB 
+Decision Tree Classifier -> DecisionTreeClassifier 
+KNN Classifier -> KNeighborsClassifier 
+Random Forest Classifier -> RandomForestClassifier 
+Logistic Regression -> LogisticRegression 
 **** End ****

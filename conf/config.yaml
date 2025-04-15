@@ -80,4 +80,13 @@ redundant_col: difficulty_score
 
 target_col: attack_type
 
+ml_models :
+   'Naïve Bayes Classifier': GaussianNB
+   'Bernoulli Naïve Bayes Classifier': BernoulliNB
+   'Decision Tree Classifier' : DecisionTreeClassifier 
+   'KNN Classifier': KNeighborsClassifier
+   'Random Forest Classifier': RandomForestClassifier
+   'Logistic Regression': LogisticRegression
+    # 'Support Vector Classifier': SVC, 'Linear Regression': LinearRegression
+
 

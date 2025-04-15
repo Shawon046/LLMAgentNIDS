@@ -132,6 +132,7 @@ def preprocess_train_data(cfg, train_data):
     # Binarize the labels
     y_train_binary = binarize_labels(y_train)
 
+    # print(f'Len of y train : {len(y_train_binary)}')
     # Load pre-saved label encoders
     label_encoders = load_label_encoders(cfg, scaler_file_dir)
     
@@ -190,6 +191,8 @@ def preprocess_test_data(cfg, test_data):
     scaler_path = os.path.join(scaler_file_dir, 'standard_scaler.joblib')
     if not os.path.exists(scaler_path):
         raise FileNotFoundError("Scaler not found. Run preprocess_train_data first.")
+    else: 
+        print(f'Scaler found at {scaler_file_dir}/standard_scaler.joblib')
     scaler = joblib.load(scaler_path)
     
     # Categorical column encoding using pre-saved encoders

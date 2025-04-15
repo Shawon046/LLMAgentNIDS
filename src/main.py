@@ -8,26 +8,39 @@ from pathlib import Path
 import hydra
 from omegaconf import DictConfig # type: ignore
 
-from dataset.preprocess import *
 from helper.misc_helper import *
 from dataset.load_data import get_dataloader
-
-def process_dataset(cfg: DictConfig):
-    print(f'{cfg.run_type} {cfg.dataset} with {cfg.model}')
-    preprocess_dataset(cfg)
-
-
+from model.traditional_models import *
 
 def load_and_train_model(cfg: DictConfig) -> None:
 
-    # # Update config with source directory
-    # source_dir = Path(__file__).resolve().parent
-    # cfg = update_abs_path(cfg_base.copy(), source_dir)
-    print(f"{cfg.run_type.capitalize()} {cfg.model} model on {cfg.dataset}")
 
+    print(f"{cfg.run_type.capitalize()} {cfg.model} model on {cfg.dataset}")
     
     print(f"Starting point: {cfg.dataset_dir} ")
-    dataloader = get_dataloader(cfg) 
+    train_dataloader = get_dataloader(cfg, True) 
+    test_dataloader = get_dataloader(cfg, False) 
+    # baseline_traditional_ml_models(cfg, train_dataloader, test_dataloader)
+
+    # model, pre_trained, rem_epochs = get_model(cfg)
+    # if cfg.run_type == 'train' and pre_trained:
+    #     print("Model is already trained.")
+    #     # return
+    # elif cfg.run_type == 'test' and not pre_trained:
+    #     print("Model is not trained yet.")
+    #     return
+       
+    # print("Starting point: cfg.data_dir :", cfg.data_dir)
+    # dataloader = get_dataloader(cfg) 
+
+    # # Get training data and train model
+    # if cfg_base.run_type == 'train':
+    #     model = train_model(cfg, model, dataloader, rem_epochs, pre_trained)
+
+    # elif cfg_base.run_type == 'test':
+    #     results = test_model(cfg, model, dataloader)
+    #     print("results :", results)
+
 
 @hydra.main(version_base=None, config_path="../conf", config_name="config")
 
@@ -36,7 +49,6 @@ def main(cfg: DictConfig):
     seed_everything(cfg)
     DEVICE = getDevice(cfg)
     check_cuda(cfg)
-    process_dataset(cfg)
     load_and_train_model(cfg)
     print(f'**** End ****')
 

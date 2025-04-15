@@ -83,7 +83,7 @@ class NSLKDDDataset(Dataset):
             print('Categorical distribution in Training set:')
         else: 
             print('Categorical distribution in Testing set:')
-        #TODO Shawon: check DF data type
+
         for col_name in df.columns:
             if df[col_name].dtypes == 'object' :
                 unique_cat = len(df[col_name].unique())

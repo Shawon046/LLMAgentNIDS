@@ -15,7 +15,7 @@ from helper.dataset_helper import *
 from .load_nsl_data import *
 
 
-def get_dataset(cfg):
+def get_dataset(cfg, train_split):
     """
     Retrieve datasets based on the modality specified in the configuration.
     
@@ -33,7 +33,8 @@ def get_dataset(cfg):
     # Check if the dataset name is in the mapping
     if dataset_type == 'nids':
         # X, y = get_nids_data(cfg)
-        train_split = True if cfg.run_type == 'train' else False
+
+        # train_split = True if cfg.run_type == 'train' else False
         dataset_name = cfg.dataset
         if dataset_name == 'nsl-kdd':
             X, y = get_nsl_dataset(cfg, train_split)
@@ -59,7 +60,7 @@ def get_dataset(cfg):
 
 
 
-def get_dataloader(cfg):
+def get_dataloader(cfg, train_split):
     """
     Unified function to get the appropriate data loader based on the dataset type.
     
@@ -72,7 +73,7 @@ def get_dataloader(cfg):
     print(f'**Inside Load data file**')
     batch_size = cfg.batch_size
     shuffle = True if cfg.run_type == 'train' else False
-    dataset = get_dataset(cfg)
+    dataset = get_dataset(cfg, train_split)
     dataloader = torch.utils.data.DataLoader(dataset, 
                                                 batch_size=batch_size,
                                                 shuffle=shuffle)
