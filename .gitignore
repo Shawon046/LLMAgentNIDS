@@ -1,6 +1,6 @@
 # Folders
 src/outputs/
-
+artifacts/scaler
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -61,7 +61,7 @@ def create_label_encoders(cfg, train_data, scaler_file_dir):
     os.makedirs(scaler_file_dir, exist_ok=True)
     
     # Categorical columns to encode
-    cat_columns = cfg.dataset.cat_columns
+    cat_columns = cfg.cat_columns
     label_encoders = {}
     
     for col in cat_columns:
@@ -92,7 +92,7 @@ def load_label_encoders(cfg, scaler_file_dir):
     """
     # scaler_file_dir = cfg.scaler_dir / 'label_encoders'
     print(f'Label Encoder is loaded from {scaler_file_dir}')
-    cat_columns = cfg.dataset.cat_columns
+    cat_columns = cfg.cat_columns
     label_encoders = {}
     
     for col in cat_columns:
@@ -122,7 +122,7 @@ def preprocess_train_data(cfg, train_data):
     tuple: Preprocessed training data and scaler
     """
     print(f'Preprocess training data and scaler')
-    scaler_file_dir = cfg.scaler_dir /'label_encoders'
+    scaler_file_dir = f'{cfg.scaler_dir}/label_encoders'
     # Create label encoders and save them
     create_label_encoders(cfg, train_data, scaler_file_dir)
     
@@ -136,12 +136,12 @@ def preprocess_train_data(cfg, train_data):
     label_encoders = load_label_encoders(cfg, scaler_file_dir)
     
     # Categorical column encoding using pre-saved encoders
-    cat_columns = cfg.dataset.cat_columns
+    cat_columns = cfg.cat_columns
     for col in cat_columns:
         X_train[col] = label_encoders[col].transform(X_train[col])
     
     # Binary columns encoding
-    binary_columns = cfg.dataset.binary_columns
+    binary_columns = cfg.binary_columns
     for col in binary_columns:
         X_train[col] = X_train[col].astype(int)
     
@@ -217,15 +217,15 @@ def separate_X_y_from_df(cfg, df):
     Args:
     - df: Dataframe created from the NSL-KDD dataset CSV files
     """
-    X = df.drop(cfg.dataset.target_col, axis=1)
-    y = df[cfg.dataset.target_col]
+    X = df.drop(cfg.target_col, axis=1)
+    y = df[cfg.target_col]
     print(f'Shape X {X.shape} and y {y.shape}')
     return X, y
 
 def drop_column(cfg, df, col_name = None):
         # We have found out that feature difficulty_score is not needed for the model to learn intrusion. So we can drop this column
         if col_name is None:
-            col_name = cfg.dataset.redundant_col
+            col_name = cfg.redundant_col
         df = df.drop(col_name, axis=1)
         print(df.head())
 

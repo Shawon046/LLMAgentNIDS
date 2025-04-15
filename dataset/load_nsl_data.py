@@ -22,9 +22,9 @@ class NSLKDDDataset(Dataset):
         self.cfg = cfg
         # Determine which files to load based on train/test split
         if train:
-            train_file = f"{cfg.data_dir}/NSL-KDD/KDDTrain+.csv"
+            train_file = f"{cfg.dataset_dir}/KDDTrain+.csv"
         else:
-            train_file = f"{cfg.data_dir}/NSL-KDD/KDDTest+.csv"
+            train_file = f"{cfg.dataset_dir}/KDDTest+.csv"
 
         # col_names = ["duration","protocol_type","service","flag","src_bytes",
         #         "dst_bytes","land","wrong_fragment","urgent","hot","num_failed_logins",
@@ -37,7 +37,7 @@ class NSLKDDDataset(Dataset):
         #         "dst_host_srv_diff_host_rate","dst_host_serror_rate","dst_host_srv_serror_rate",
         #         "dst_host_rerror_rate","dst_host_srv_rerror_rate","attack_type", "difficulty_score"]
         # 
-        col_names = cfg.dataset.columns
+        col_names = cfg.columns
         # print(col_names)
         print(len(col_names))
         # Read the dataset
@@ -154,7 +154,7 @@ def get_nsl_dataset(cfg, train_split):
     Returns:
     - NSL-KDD Dataset
     """
-    print(f'**Inside Load  NSL data file**')
+    print(f'**Inside Load NSL data file**')
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])
