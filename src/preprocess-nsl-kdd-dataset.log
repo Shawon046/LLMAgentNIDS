@@ -1,6 +1,4 @@
 nohup: ignoring input
-/home/shahedul/Github/LLMAgentNIDS/dataset/load_nsl_data.py:44: DtypeWarning: Columns (0,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,42) have mixed types. Specify dtype option on import or set low_memory=False.
-  df = pd.read_csv(train_file, sep=",", header=None, names=col_names)
 **** Main file ****
 seed from hydra config file is 42
 Using device: cuda:0
@@ -20,66 +18,32 @@ Starting point: ../nsl-kdd/NSL-KDD/
 **Inside Load data file**
 **Inside Load NSL data file**
 43
-   duration  protocol_type  ... attack_type  difficulty_score
-0  duration  protocol_type  ...       label  difficulty_score
-1         0            tcp  ...      normal                20
-2         0            udp  ...      normal                15
-3         0            tcp  ...     neptune                19
-4         0            tcp  ...      normal                21
+   duration protocol_type  ... attack_type difficulty_score
+0         0           tcp  ...      normal               20
+1         0           udp  ...      normal               15
+2         0           tcp  ...     neptune               19
+3         0           tcp  ...      normal               21
+4         0           tcp  ...      normal               21
 
 [5 rows x 43 columns]
-   duration  protocol_type  ...  dst_host_srv_rerror_rate attack_type
-0  duration  protocol_type  ...  dst_host_srv_rerror_rate       label
-1         0            tcp  ...                       0.0      normal
-2         0            udp  ...                       0.0      normal
-3         0            tcp  ...                       0.0     neptune
-4         0            tcp  ...                      0.01      normal
+Checking consistency
+Feature 'protocol_type' has 3 categories
+Feature 'service' has 70 categories
+Feature 'flag' has 11 categories
+Feature 'attack_type' has 23 categories
+   duration protocol_type  ... dst_host_srv_rerror_rate attack_type
+0         0           tcp  ...                     0.00      normal
+1         0           udp  ...                     0.00      normal
+2         0           tcp  ...                     0.00     neptune
+3         0           tcp  ...                     0.01      normal
+4         0           tcp  ...                     0.00      normal
 
 [5 rows x 42 columns]
 Categorical distribution in Training set:
-Feature 'duration' has 3138 categories
-Feature 'protocol_type' has 4 categories
-Feature 'service' has 71 categories
-Feature 'flag' has 12 categories
-Feature 'src_bytes' has 4497 categories
-Feature 'dst_bytes' has 11717 categories
-Feature 'land' has 5 categories
-Feature 'wrong_fragment' has 7 categories
-Feature 'urgent' has 7 categories
-Feature 'hot' has 48 categories
-Feature 'num_failed_logins' has 11 categories
-Feature 'logged_in' has 5 categories
-Feature 'num_compromised' has 102 categories
-Feature 'root_shell' has 5 categories
-Feature 'su_attempted' has 7 categories
-Feature 'num_root' has 92 categories
-Feature 'num_file_creations' has 48 categories
-Feature 'num_shells' has 6 categories
-Feature 'num_access_files' has 16 categories
-Feature 'num_outbound_cmds' has 3 categories
-Feature 'is_hot_login' has 4 categories
-Feature 'is_guest_login' has 5 categories
-Feature 'count' has 951 categories
-Feature 'srv_count' has 893 categories
-Feature 'serror_rate' has 153 categories
-Feature 'srv_serror_rate' has 131 categories
-Feature 'rerror_rate' has 149 categories
-Feature 'srv_rerror_rate' has 101 categories
-Feature 'same_srv_rate' has 194 categories
-Feature 'diff_srv_rate' has 164 categories
-Feature 'srv_diff_host_rate' has 115 categories
-Feature 'dst_host_count' has 513 categories
-Feature 'dst_host_srv_count' has 513 categories
-Feature 'dst_host_same_srv_rate' has 203 categories
-Feature 'dst_host_diff_srv_rate' has 203 categories
-Feature 'dst_host_same_src_port_rate' has 203 categories
-Feature 'dst_host_srv_diff_host_rate' has 136 categories
-Feature 'dst_host_serror_rate' has 199 categories
-Feature 'dst_host_srv_serror_rate' has 177 categories
-Feature 'dst_host_rerror_rate' has 203 categories
-Feature 'dst_host_srv_rerror_rate' has 196 categories
-Feature 'attack_type' has 24 categories
-Feature 'difficulty_score' has 45 categories
+Feature 'protocol_type' has 3 categories
+Feature 'service' has 70 categories
+Feature 'flag' has 11 categories
+Feature 'attack_type' has 23 categories
 
 Distribution of categories in service:
 service
@@ -91,8 +55,16 @@ ftp_data     6860
 Name: count, dtype: int64
 Preprocess training data and scaler
 Label Encoder is going to be saved to ../artifacts/scaler/label_encoders
-Shape X (125974, 42) and y (125974,)
+Shape X (125973, 42) and y (125973,)
 Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Training: Shape X (125973, 42) and y (125973,)
+Shape of X (images): (125973, 42)
+Shape of y (labels): (125973,)
+*************************  Loaded Tabular data <class 'numpy.ndarray'> *************************
+*************************  Loaded Dataset <class 'helper.dataset_helper.CreateDataset'> *************************
+Minimum value: -2.468724250793457
+Maximum value: 6.653244972229004
+Standard Deviation: 0.7655508518218994
 Error executing job with overrides: []
 Traceback (most recent call last):
   File "/home/shahedul/Github/LLMAgentNIDS/src/main.py", line 40, in main
@@ -100,42 +72,11 @@ Traceback (most recent call last):
   File "/home/shahedul/Github/LLMAgentNIDS/src/main.py", line 30, in load_and_train_model
     dataloader = get_dataloader(cfg)
                 ^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/Github/LLMAgentNIDS/dataset/load_data.py", line 75, in get_dataloader
-    dataset = get_dataset(cfg)
-              ^^^^^^^^^^^^^^^^
-  File "/home/shahedul/Github/LLMAgentNIDS/dataset/load_data.py", line 39, in get_dataset
-    X, y = get_nsl_dataset(cfg, train_split)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/Github/LLMAgentNIDS/dataset/load_nsl_data.py", line 162, in get_nsl_dataset
-    dataset = NSLKDDDataset(
-              ^^^^^^^^^^^^^^
-  File "/home/shahedul/Github/LLMAgentNIDS/dataset/load_nsl_data.py", line 63, in __init__
-    X_scaled, y_encoded = preprocess_train_data(cfg, df)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/Github/LLMAgentNIDS/dataset/preprocess_nsl_data.py", line 146, in preprocess_train_data
-    X_train[col] = X_train[col].astype(int)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/generic.py", line 6643, in astype
-    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/internals/managers.py", line 430, in astype
-    return self.apply(
-           ^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/internals/managers.py", line 363, in apply
-    applied = getattr(b, f)(**kwargs)
-              ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/internals/blocks.py", line 758, in astype
-    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/dtypes/astype.py", line 237, in astype_array_safe
-    new_values = astype_array(values, dtype, copy=copy)
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/dtypes/astype.py", line 182, in astype_array
-    values = _astype_nansafe(values, dtype, copy=copy)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/shahedul/miniconda3/envs/llm-nids/lib/python3.12/site-packages/pandas/core/dtypes/astype.py", line 133, in _astype_nansafe
-    return arr.astype(dtype, copy=True)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ValueError: invalid literal for int() with base 10: 'land'
+  File "/home/shahedul/Github/LLMAgentNIDS/dataset/load_data.py", line 82, in get_dataloader
+    print_label_counts(dataloader)
+  File "/home/shahedul/Github/LLMAgentNIDS/helper/dataset_helper.py", line 44, in print_label_counts
+    label_counts = Counter()
+                   ^^^^^^^
+NameError: name 'Counter' is not defined
 
 Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

@@ -62,7 +62,7 @@ columns:
   - attack_type
   - difficulty_score
 
-cat_columns:
+categorical_columns:
   - protocol_type
   - service
   - flag

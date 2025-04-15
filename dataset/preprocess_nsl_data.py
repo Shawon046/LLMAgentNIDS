@@ -61,7 +61,7 @@ def create_label_encoders(cfg, train_data, scaler_file_dir):
     os.makedirs(scaler_file_dir, exist_ok=True)
     
     # Categorical columns to encode
-    cat_columns = cfg.cat_columns
+    cat_columns = cfg.categorical_columns
     label_encoders = {}
     
     for col in cat_columns:
@@ -92,7 +92,7 @@ def load_label_encoders(cfg, scaler_file_dir):
     """
     # scaler_file_dir = cfg.scaler_dir / 'label_encoders'
     print(f'Label Encoder is loaded from {scaler_file_dir}')
-    cat_columns = cfg.cat_columns
+    cat_columns = cfg.categorical_columns
     label_encoders = {}
     
     for col in cat_columns:
@@ -136,7 +136,7 @@ def preprocess_train_data(cfg, train_data):
     label_encoders = load_label_encoders(cfg, scaler_file_dir)
     
     # Categorical column encoding using pre-saved encoders
-    cat_columns = cfg.cat_columns
+    cat_columns = cfg.categorical_columns
     for col in cat_columns:
         X_train[col] = label_encoders[col].transform(X_train[col])
     

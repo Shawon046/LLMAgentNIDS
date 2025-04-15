@@ -1,5 +1,3 @@
-# TODO: Shahedul
-
 from torchvision import datasets, transforms
 
 
@@ -26,17 +24,6 @@ class NSLKDDDataset(Dataset):
         else:
             train_file = f"{cfg.dataset_dir}/KDDTest+.csv"
 
-        # col_names = ["duration","protocol_type","service","flag","src_bytes",
-        #         "dst_bytes","land","wrong_fragment","urgent","hot","num_failed_logins",
-        #         "logged_in","num_compromised","root_shell","su_attempted","num_root",
-        #         "num_file_creations","num_shells","num_access_files","num_outbound_cmds",
-        #         "is_host_login","is_guest_login","count","srv_count","serror_rate",
-        #         "srv_serror_rate","rerror_rate","srv_rerror_rate","same_srv_rate",
-        #         "diff_srv_rate","srv_diff_host_rate","dst_host_count","dst_host_srv_count",
-        #         "dst_host_same_srv_rate","dst_host_diff_srv_rate","dst_host_same_src_port_rate",
-        #         "dst_host_srv_diff_host_rate","dst_host_serror_rate","dst_host_srv_serror_rate",
-        #         "dst_host_rerror_rate","dst_host_srv_rerror_rate","attack_type", "difficulty_score"]
-        # 
         col_names = cfg.columns
         # print(col_names)
         print(len(col_names))
@@ -44,6 +31,12 @@ class NSLKDDDataset(Dataset):
         df = pd.read_csv(train_file, sep=",", header=None, names=col_names)
 
         print(df.head())
+        # print(f'Checking consistency')
+        # for col_name in df.columns:
+        #     if df[col_name].dtypes == 'object' :
+        #         unique_cat = len(df[col_name].unique())
+        #         print("Feature '{col_name}' has {unique_cat} categories".format(col_name=col_name, unique_cat=unique_cat))
+
 
         # Drop Unnecessary Column
         drop_column(cfg, df)
@@ -62,7 +55,7 @@ class NSLKDDDataset(Dataset):
         if train is True:
             X_scaled, y_encoded = preprocess_train_data(cfg, df)
         else:
-            X_scaled, y_encoded =preprocess_test_data(cfg, df) 
+            X_scaled, y_encoded = preprocess_test_data(cfg, df) 
 
         # df = self.preprocess_data(df)
         
@@ -90,6 +83,7 @@ class NSLKDDDataset(Dataset):
             print('Categorical distribution in Training set:')
         else: 
             print('Categorical distribution in Testing set:')
+        #TODO Shawon: check DF data type
         for col_name in df.columns:
             if df[col_name].dtypes == 'object' :
                 unique_cat = len(df[col_name].unique())
