@@ -16,7 +16,7 @@ Preprocessing dataset at ../nsl-kdd/NSL-KDD/
 Train ml model on nsl-kdd
 Starting point: ../nsl-kdd/NSL-KDD/ 
 **Inside Load data file**
-**Inside Load NSL data file**
+**Inside Load NSL data file for train True**
 43
    duration protocol_type  ... attack_type difficulty_score
 0         0           tcp  ...      normal               20
@@ -88,6 +88,6 @@ Maximum value: 6.653244972229004
 Standard Deviation: 0.7655508518218994
 Label 1.0: 58630
 Label 0.0: 67343
-<torch.utils.data.dataloader.DataLoader object at 0x7fa69d737ec0>
+<torch.utils.data.dataloader.DataLoader object at 0x781fbff90050>
 *************************  Loaded Dataloader: <class 'torch.utils.data.dataloader.DataLoader'> *************************
 **** End ****

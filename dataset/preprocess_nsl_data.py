@@ -90,7 +90,7 @@ def load_label_encoders(cfg, scaler_file_dir):
     --------
     dict: Loaded label encoders for each categorical column
     """
-    # scaler_file_dir = cfg.scaler_dir / 'label_encoders'
+    scaler_file_dir = f'{cfg.scaler_dir}/label_encoders'
     print(f'Label Encoder is loaded from {scaler_file_dir}')
     cat_columns = cfg.categorical_columns
     label_encoders = {}
@@ -174,7 +174,7 @@ def preprocess_test_data(cfg, test_data):
     tuple: Preprocessed test data
     """
     print(f'Preprocess testing data and scaler')
-    scaler_file_dir = cfg.scaler_dir + 'label_encoders'
+    scaler_file_dir = f'{cfg.scaler_dir}/label_encoders'
     print(f'Label Encoder is loaded from {scaler_file_dir}')
     # Separate features and labels
     X_test = test_data.drop('attack_type', axis=1)
@@ -184,7 +184,7 @@ def preprocess_test_data(cfg, test_data):
     y_test_binary = binarize_labels(y_test)
 
     # Load pre-saved label encoders
-    label_encoders = load_label_encoders(scaler_file_dir)
+    label_encoders = load_label_encoders(cfg, scaler_file_dir)
     
     # Load pre-saved scaler
     scaler_path = os.path.join(scaler_file_dir, 'standard_scaler.joblib')
@@ -193,12 +193,12 @@ def preprocess_test_data(cfg, test_data):
     scaler = joblib.load(scaler_path)
     
     # Categorical column encoding using pre-saved encoders
-    cat_columns = cfg.dataset.cat_columns
+    cat_columns = cfg.categorical_columns
     for col in cat_columns:
         X_test[col] = label_encoders[col].transform(X_test[col])
     
     # Binary columns encoding
-    binary_columns = cfg.dataset.binary_columns
+    binary_columns = cfg.binary_columns
     for col in binary_columns:
         X_test[col] = X_test[col].astype(int)
     

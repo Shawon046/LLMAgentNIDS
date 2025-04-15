@@ -1,0 +1,107 @@
+nohup: ignoring input
+**** Main file ****
+seed from hydra config file is 42
+Using device: cuda:0
+---------- Checking Version of Virtual Environment before starting ---------------
+Torch version: 2.5.1
+CUDA version: 12.4
+Is CUDA enabled? True
+Using device: cuda:0
+current_device Name : NVIDIA GeForce RTX 3070 Ti
+Memory Usage:
+Allocated: 0.0 GB
+Cached:    0.0 GB
+test nsl-kdd with ml
+Preprocessing dataset at ../nsl-kdd/NSL-KDD/
+Test ml model on nsl-kdd
+Starting point: ../nsl-kdd/NSL-KDD/ 
+**Inside Load data file**
+**Inside Load NSL data file for train False**
+43
+   duration protocol_type  ... attack_type difficulty_score
+0         0           tcp  ...     neptune               21
+1         0           tcp  ...     neptune               21
+2         2           tcp  ...      normal               21
+3         0          icmp  ...       saint               15
+4         1           tcp  ...       mscan               11
+
+[5 rows x 43 columns]
+   duration protocol_type  ... dst_host_srv_rerror_rate attack_type
+0         0           tcp  ...                     1.00     neptune
+1         0           tcp  ...                     1.00     neptune
+2         2           tcp  ...                     0.00      normal
+3         0          icmp  ...                     0.00       saint
+4         1           tcp  ...                     0.71       mscan
+
+[5 rows x 42 columns]
+Label distribution Testing set:
+attack_type
+normal             9711
+neptune            4657
+guess_passwd       1231
+mscan               996
+warezmaster         944
+apache2             737
+satan               735
+processtable        685
+smurf               665
+back                359
+snmpguess           331
+saint               319
+mailbomb            293
+snmpgetattack       178
+portsweep           157
+ipsweep             141
+httptunnel          133
+nmap                 73
+pod                  41
+buffer_overflow      20
+multihop             18
+named                17
+ps                   15
+sendmail             14
+xterm                13
+rootkit              13
+teardrop             12
+xlock                 9
+land                  7
+xsnoop                4
+ftp_write             3
+loadmodule            2
+worm                  2
+perl                  2
+sqlattack             2
+udpstorm              2
+phf                   2
+imap                  1
+Name: count, dtype: int64
+Categorical distribution in Testing set:
+Feature 'protocol_type' has 3 categories
+Feature 'service' has 64 categories
+Feature 'flag' has 11 categories
+Feature 'attack_type' has 38 categories
+
+Distribution of categories in service:
+service
+http       7853
+private    4774
+telnet     1626
+pop_3      1019
+smtp        934
+Name: count, dtype: int64
+Preprocess testing data and scaler
+Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Label Encoder is loaded from ../artifacts/scaler/label_encoders
+Testing: Shape X (22544, 42) and y (22544,)
+Shape of X (images): (22544, 42)
+Shape of y (labels): (22544,)
+*************************  Loaded Tabular data <class 'numpy.ndarray'> *************************
+*************************  Loaded Dataset <class 'helper.dataset_helper.CreateDataset'> *************************
+Minimum value: -5.456728935241699
+Maximum value: 22.077817916870117
+Standard Deviation: 1.2447742223739624
+Label 1.0: 12833
+Label 0.0: 9711
+<torch.utils.data.dataloader.DataLoader object at 0x77f4a8b11580>
+*************************  Loaded Dataloader: <class 'torch.utils.data.dataloader.DataLoader'> *************************
+**** End ****

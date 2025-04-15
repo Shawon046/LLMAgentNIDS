@@ -45,6 +45,8 @@ Run the main file with:
 ```
 conda activate llm-nids
 cd src/
-nohup python main.py > preprocess-nsl-kdd-dataset.log 2>&1 &
+nohup python main.py > preprocess-nsl-kdd-train-dataset.log 2>&1 &
+nohup python main.py run_type=test > preprocess-nsl-kdd-test-dataset.log 2>&1 &
+
 nohup python main.py model='llm-agent'> output.log 2>&1 &
 ```

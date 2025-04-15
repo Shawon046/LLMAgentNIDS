@@ -41,7 +41,7 @@ class NSLKDDDataset(Dataset):
         # Drop Unnecessary Column
         drop_column(cfg, df)
 
-        # self.get_label_distribution(train, df)
+        self.get_label_distribution(train, df)
         self.get_categorical_distribution(train, df)
         # cat_dict = cfg.dataset.cat_columns
         # print(f'Cat columns from config file {cat_dict}')
@@ -75,7 +75,7 @@ class NSLKDDDataset(Dataset):
             print('Label distribution Training set:')
         else: 
             print('Label distribution Testing set:')
-        print(df['label'].value_counts())
+        print(df['attack_type'].value_counts())
 
     def get_categorical_distribution(self, train, df):
         # Label Distribution of Training and Test set
@@ -148,7 +148,7 @@ def get_nsl_dataset(cfg, train_split):
     Returns:
     - NSL-KDD Dataset
     """
-    print(f'**Inside Load NSL data file**')
+    print(f'**Inside Load NSL data file for train {train_split}**')
     transform = transforms.Compose([
         transforms.ToTensor(),
     ])

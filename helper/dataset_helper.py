@@ -1,5 +1,7 @@
 import torch
 from torch.utils.data import Dataset
+from collections import Counter
+
 
 class CreateDataset(Dataset):
     def __init__(self, X, y):
