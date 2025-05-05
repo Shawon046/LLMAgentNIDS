@@ -1,0 +1,28 @@
+Epoch 1: Train Accuracy = 0.9608
+
+Epoch 2: Train Accuracy = 0.9890
+
+Epoch 3: Train Accuracy = 0.9930
+
+Epoch 4: Train Accuracy = 0.9941
+
+Epoch 5: Train Accuracy = 0.9958
+
+Epoch 6: Train Accuracy = 0.9956
+
+Epoch 7: Train Accuracy = 0.9972
+
+Epoch 8: Train Accuracy = 0.9975
+
+Epoch 9: Train Accuracy = 0.9972
+
+Epoch 10: Train Accuracy = 0.9985
+
+--- Test Set Results ---
+Accuracy           : 0.7536
+Test R² Score      : -0.0047
+Precision (Benign) : 0.6462
+Precision (Anomaly): 0.9372
+Recall             : 0.6080
+F1 Score           : 0.7375
+FPR (False Positive Rate): 0.053856

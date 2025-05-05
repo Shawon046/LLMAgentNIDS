@@ -1,15 +1,15 @@
 import pandas as pd
 import torch
 from torch.utils.data import Dataset, DataLoader
-from transformers import GPT2Tokenizer, GPT2ForSequenceClassification, AdamW
+from transformers import GPT2Tokenizer, GPT2ForSequenceClassification, AdamW, AutoTokenizer, AutoModelForSequenceClassification
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score, precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
 
 # 1. Load dataset
-df = pd.read_excel('./KDDTrain+.xlsx', nrows=10000)  # Adjust rows as needed
+df = pd.read_excel('/home/sabiha/course-6604/KDDTrain+.xlsx', nrows=10000)  # Adjust rows as needed
 
 # 1. Load the test dataset
-df_test = pd.read_excel('./KDDTest+.xlsx')
+df_test = pd.read_excel('/home/sabiha/course-6604/KDDTest+.xlsx')
 
 
 # 2. Preprocessing
@@ -55,12 +55,10 @@ class NetworkTrafficDataset(Dataset):
         return item
 
 # 4. Load tokenizer and model
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-# tokenizer = GPT2Tokenizer.from_pretrained('gpt2-xl')
+tokenizer = AutoTokenizer.from_pretrained('distilgpt2')
 tokenizer.pad_token = tokenizer.eos_token  # GPT2 doesn't have a pad_token
 
-model = GPT2ForSequenceClassification.from_pretrained('gpt2', num_labels=2)
-# model = GPT2ForSequenceClassification.from_pretrained('gpt2-xl', num_labels=2)
+model = AutoModelForSequenceClassification.from_pretrained('distilgpt2', num_labels=2)
 model.config.pad_token_id = tokenizer.pad_token_id
 
 # 5. DataLoaders

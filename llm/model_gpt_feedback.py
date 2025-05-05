@@ -12,7 +12,7 @@ df = pd.read_excel('./KDDTrain+.xlsx', nrows=10000)  # Adjust rows as needed
 df_test = pd.read_excel('./KDDTest+.xlsx')
 # Split df_test into feedback set (e.g., 50%) and eval set (remaining 50%)
 # df_feedback, df_eval = train_test_split(df_test, test_size=0.5, random_state=42, stratify=df_test['label'])
-df_feedback, df_eval = train_test_split(df_test, test_size=0.5, random_state=42)
+df_feedback, df_eval = train_test_split(df_test, test_size=0.2, random_state=42)
 
 # Optional: Reset index
 df_feedback = df_feedback.reset_index(drop=True)
