@@ -1,0 +1,119 @@
+50/50 Feedback/Eval Split
+Epoch 1: Train Accuracy = 0.9495
+
+Epoch 2: Train Accuracy = 0.9879
+
+Epoch 3: Train Accuracy = 0.9927
+
+Epoch 4: Train Accuracy = 0.9931
+
+Epoch 5: Train Accuracy = 0.9950
+
+Epoch 6: Train Accuracy = 0.9962
+
+Epoch 7: Train Accuracy = 0.9958
+
+Epoch 8: Train Accuracy = 0.9977
+
+Epoch 9: Train Accuracy = 0.9973
+
+Epoch 10: Train Accuracy = 0.9981
+
+--- Test Set Results ---
+Accuracy           : 0.7677
+Test R² Score      : 0.0496
+Precision (Benign) : 0.6630
+Precision (Anomaly): 0.9200
+Recall             : 0.6522
+F1 Score           : 0.7633
+FPR (False Positive Rate): 0.076506
+
+--- Feedback Session ---
+
+Feedback session complete. Feedback saved to 'feedback_data.json'
+Found 2619 incorrect predictions.
+Model fine-tuned using feedback corrections.
+
+--- Test Set Results ---
+Accuracy           : 0.3827
+Test R² Score      : -1.5103
+Precision (Benign) : 0.1545
+Precision (Anomaly): 0.4639
+Recall             : 0.6066
+F1 Score           : 0.5258
+FPR (False Positive Rate): 0.907000
+
+
+
+20/80 Feedback/Eval Split
+
+Epoch 1: Train Accuracy = 0.9618
+
+Epoch 2: Train Accuracy = 0.9895
+
+Epoch 3: Train Accuracy = 0.9922
+
+Epoch 4: Train Accuracy = 0.9950
+
+Epoch 5: Train Accuracy = 0.9956
+
+Epoch 6: Train Accuracy = 0.9973
+
+Epoch 7: Train Accuracy = 0.9961
+
+Epoch 8: Train Accuracy = 0.9972
+
+Epoch 9: Train Accuracy = 0.9977
+
+Epoch 10: Train Accuracy = 0.9973
+
+--- Test Set Results ---
+Accuracy           : 0.7462
+Test R² Score      : -0.0383
+Precision (Benign) : 0.6349
+Precision (Anomaly): 0.9409
+Recall             : 0.5955
+F1 Score           : 0.7294
+FPR (False Positive Rate): 0.050448
+
+--- Feedback Session ---
+
+Feedback session complete. Feedback saved to 'feedback_data.json'
+Found 2861 incorrect predictions.
+Model fine-tuned using feedback corrections.
+
+--- Test Set Results ---
+Accuracy           : 0.3859
+Test R² Score      : -1.4973
+Precision (Benign) : 0.0774
+Precision (Anomaly): 0.4683
+Recall             : 0.6552
+F1 Score           : 0.5462
+FPR (False Positive Rate): 0.962556
+
+
+
+20% Feedback again evail with this 20%
+--- Test Set Results ---
+Accuracy           : 0.7562
+Test R² Score      : 0.0027
+Precision (Benign) : 0.6505
+Precision (Anomaly): 0.9174
+Recall             : 0.6326
+F1 Score           : 0.7488
+FPR (False Positive Rate): 0.076923
+
+--- Feedback Session ---
+
+Feedback session complete. Feedback saved to 'feedback_data.json'
+Found 2748 incorrect predictions.
+Model fine-tuned using feedback corrections.
+
+--- Test Set Results ---
+Accuracy           : 0.4430
+Test R² Score      : -1.2783
+Precision (Benign) : 0.1438
+Precision (Anomaly): 0.5107
+Recall             : 0.7251
+F1 Score           : 0.5993
+FPR (False Positive Rate): 0.937669

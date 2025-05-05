@@ -1,0 +1,32 @@
+gpt-124M
+Epoch 1: Train Accuracy = 0.9713
+
+Epoch 2: Train Accuracy = 0.9876
+
+Epoch 3: Train Accuracy = 0.9915
+
+Epoch 4: Train Accuracy = 0.9937
+
+Epoch 5: Train Accuracy = 0.9947
+
+Epoch 6: Train Accuracy = 0.9948
+
+Epoch 7: Train Accuracy = 0.9969
+
+Epoch 8: Train Accuracy = 0.9974
+
+Epoch 9: Train Accuracy = 0.9977
+
+Epoch 10: Train Accuracy = 0.9980
+
+--- Test Set Results ---
+Accuracy           : 0.7689
+Test R² Score      : 0.0577
+Precision (Benign) : 0.6635
+Precision (Anomaly): 0.9345
+Recall             : 0.6389
+F1 Score           : 0.7589
+FPR (False Positive Rate): 0.059211
+
+
+

@@ -1,0 +1,32 @@
+Bert 110M
+
+Epoch 1: Train Accuracy = 0.5073
+
+Epoch 2: Train Accuracy = 0.5050
+
+Epoch 3: Train Accuracy = 0.5096
+
+Epoch 4: Train Accuracy = 0.5059
+
+Epoch 5: Train Accuracy = 0.5152
+
+Epoch 6: Train Accuracy = 0.5120
+
+Epoch 7: Train Accuracy = 0.5137
+
+Epoch 8: Train Accuracy = 0.5117
+
+Epoch 9: Train Accuracy = 0.5026
+
+Epoch 10: Train Accuracy = 0.5178
+
+--- Test Set Results ---
+Accuracy           : 0.4308
+Test R² Score      : -1.3215
+Precision (Benign) : 0.4308
+Precision (Anomaly): 0.0000
+Recall             : 0.0000
+F1 Score           : 0.0000
+FPR (False Positive Rate): 0.000000
+
+If output is something like {0: 5000}, Bert model never predicts 1 — which means it's not learning to detect malicious traffic.
