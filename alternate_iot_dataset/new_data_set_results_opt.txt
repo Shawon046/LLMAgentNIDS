@@ -1,0 +1,32 @@
+opt-350m
+
+Train shape: (18449, 85)
+Test shape: (4613, 85)
+
+Train label distribution:
+ label
+0    0.6
+1    0.4
+Name: proportion, dtype: float64
+
+Test label distribution:
+ label
+0    0.6
+1    0.4
+Name: proportion, dtype: float64
+
+
+Epoch 1: Train Accuracy = 0.5773 Loss = 1.0256
+
+Epoch 2: Train Accuracy = 0.5952 Loss = 0.8160
+
+Epoch 3: Train Accuracy = 0.5981 Loss = 0.9531
+
+--- Test Set Results ---
+Accuracy           : 0.6005
+Test R² Score      : -0.6653
+Precision (Benign) : 0.6005
+Precision (Anomaly): 0.0000
+Recall             : 0.0000
+F1 Score           : 0.0000
+FPR (False Positive Rate): 0.000000
