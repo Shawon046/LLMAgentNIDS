@@ -38,11 +38,16 @@ def without_feedback():
     print("Device:", device)
         # Directory of training and test data
     # Load the full parquet dataset
-    data_path = 'path_to_dataset'
+    data_path = '/home/sabiha/course-6604/iot_network_flow_data_benign_mirai_bruteforce_spoofing.parquet'
     df_full = pd.read_parquet(data_path)
+    # df_full = df_full.head(10000)
+    # df_full = df_full[45000:60000]
+
+    # print(df_full.head(10))
 
     # Label binarization: 0 = benign, 1 = attack
     df_full['label'] = df_full['label'].apply(lambda x: 0 if x.lower().startswith('benign') else 1)
+    df_full = df_full.sample(frac=0.035, random_state=42)  # Sample 1.5% of the data
 
     # Train-test split (80%-20%)
     df, df_test = train_test_split(df_full, test_size=0.2, random_state=42, stratify=df_full['label'])
@@ -101,7 +106,7 @@ def without_feedback():
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
     # epoch = 10
-    epochs = 3
+    epochs =3
     for epoch in range(epochs):
         model.train()
         train_preds, train_true = [], []

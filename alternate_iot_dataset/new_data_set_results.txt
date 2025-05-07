@@ -1,0 +1,30 @@
+GPT-124M DataSet
+
+Test shape: (4613, 85)
+
+Train label distribution:
+ label
+0    0.6
+1    0.4
+Name: proportion, dtype: float64
+
+Test label distribution:
+ label
+0    0.6
+1    0.4
+Name: proportion, dtype: float64
+
+Epoch 1: Train Accuracy = 0.9595 Loss = 0.0000
+
+Epoch 2: Train Accuracy = 0.9999 Loss = 0.0000
+
+Epoch 3: Train Accuracy = 1.0000 Loss = 0.0000
+
+--- Test Set Results ---
+Accuracy           : 1.0000
+Test R² Score      : 1.0000
+Precision (Benign) : 1.0000
+Precision (Anomaly): 1.0000
+Recall             : 1.0000
+F1 Score           : 1.0000
+FPR (False Positive Rate): 0.000000

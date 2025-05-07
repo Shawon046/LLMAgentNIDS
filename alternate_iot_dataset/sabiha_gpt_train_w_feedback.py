@@ -38,8 +38,9 @@ def with_feedback():
     print("Device:", device)
     # Directory of training and test data
     # Load the full parquet dataset
-    data_path = 'path_to_dataset'
+    data_path = '/home/sabiha/course-6604/iot_network_flow_data_benign_mirai_bruteforce_spoofing.parquet'
     df_full = pd.read_parquet(data_path)
+    df_full = df_full.head(50000)
 
     # Label binarization: 0 = benign, 1 = attack
     df_full['label'] = df_full['label'].apply(lambda x: 0 if x.lower().startswith('benign') else 1)
