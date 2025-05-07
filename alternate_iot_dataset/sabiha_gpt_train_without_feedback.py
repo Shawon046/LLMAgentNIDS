@@ -42,7 +42,7 @@ def without_feedback():
     df_full = pd.read_parquet(data_path)
 
     # Label binarization: 0 = benign, 1 = attack
-    df_full['label'] = df_full['label'].apply(lambda x: 0 if x.lower().startswith('Benign') else 1)
+    df_full['label'] = df_full['label'].apply(lambda x: 0 if x.lower().startswith('benign') else 1)
 
     # Train-test split (80%-20%)
     df, df_test = train_test_split(df_full, test_size=0.2, random_state=42, stratify=df_full['label'])
@@ -93,7 +93,6 @@ def without_feedback():
 
     optimizer = AdamW(model.parameters(), lr=5e-5)
     scaler = torch.amp.GradScaler()  # AMP scaler
-    epochs = 5
     losses = []
 
     # 6. Training Loop
@@ -102,7 +101,7 @@ def without_feedback():
     optimizer = AdamW(model.parameters(), lr=5e-5)
 
     # epoch = 10
-    epochs = 5
+    epochs = 3
     for epoch in range(epochs):
         model.train()
         train_preds, train_true = [], []
@@ -135,19 +134,19 @@ def without_feedback():
     plt.savefig(f"training_loss for {epochs} Epochs.png")
     plt.show()
 
-    model.eval()
-    test_preds, test_labels, prob_scores = [], [], []
+    # model.eval()
+    # test_preds, test_labels, prob_scores = [], [], []
 
-    with torch.no_grad():
-        for batch in test_loader:
-            batch = {k: v.to(device) for k, v in batch.items()}
-            outputs = model(**batch)
-            logits = outputs.logits
-            probs = torch.nn.functional.softmax(logits, dim=-1)
-            preds = torch.argmax(logits, dim=-1)
-            test_preds.extend(preds.cpu().numpy())
-            test_labels.extend(batch['labels'].cpu().numpy())
-            prob_scores.extend(probs[:, 1].cpu().numpy())  # Probability of class 1 (Anomaly)
+    # with torch.no_grad():
+    #     for batch in test_loader:
+    #         batch = {k: v.to(device) for k, v in batch.items()}
+    #         outputs = model(**batch)
+    #         logits = outputs.logits
+    #         probs = torch.nn.functional.softmax(logits, dim=-1)
+    #         preds = torch.argmax(logits, dim=-1)
+    #         test_preds.extend(preds.cpu().numpy())
+    #         test_labels.extend(batch['labels'].cpu().numpy())
+    #         prob_scores.extend(probs[:, 1].cpu().numpy())  # Probability of class 1 (Anomaly)
 
     # Compute metrics
     model.eval()
